@@ -8,6 +8,8 @@
 
 # Add a feed source
 echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+echo 'src-git Openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 
 # other
 # rm -rf package/lean/{samba4,luci-app-samba4,luci-app-ttyd}
