@@ -12,6 +12,5 @@ echo 'src-git Openclash https://github.com/vernesong/OpenClash' >>feeds.conf.def
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 
 # other
-rm -rf feeds/packages/net/{adguardhome}
-rm -rf package/feeds/packages/{adguardhome}
-
+rm -rf package/lean/{adguardhome}
+rm -rf package/lean/luci-theme-argon
