@@ -7,8 +7,7 @@
 #========================================================================================================================
 
 # ------------------------------- Main source started -------------------------------
-#
-# other
+
 # 删除自定义源默认的 argon 主题
 rm -rf package/lean/luci-theme-argon
 
@@ -18,8 +17,8 @@ find ./ -name luci-theme-argon | xargs rm -rf;
 # 针对 LEDE 项目拉取 argon 原作者的源码
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 
-# 替换默认主题为 luci-theme-argon
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Makefile
+# Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-argon）
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
