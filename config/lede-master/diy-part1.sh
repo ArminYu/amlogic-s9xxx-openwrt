@@ -13,4 +13,3 @@ echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.de
 
 # other
 rm -rf package/lean/{adguardhome}
-rm -rf package/lean/luci-theme-argon
