@@ -7,8 +7,7 @@
 #========================================================================================================================
 
 # 删除源码的adguardhome
-sed -i '/files/adguardhome.*/d' xxxx/packages/net/adguardhome/Makefile
-sed -i '/$(INSTALL_DIR) $(1)/etc/d' xxxx/packages/net/adguardhome/Makefile
+sed -i -e 's/./files/adguardhome.init //g' -e 's/./files/adguardhome.config //g' xxxx/packages/net/adguardhome/Makefile
 
 # Add a feed source
 echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
