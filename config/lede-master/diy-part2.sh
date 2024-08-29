@@ -9,9 +9,11 @@
 # ------------------------------- Main source started -------------------------------
 
 # 移除要替换的包
+rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/applications/luci-app-argon-config
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
