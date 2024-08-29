@@ -6,10 +6,20 @@
 # Source code repository: https://github.com/coolsnowwolf/lede / Branch: master
 #========================================================================================================================
 
-# Add a feed source
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-echo 'src-git Openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
-echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
+# 移除要替换的包
+rm -rf feeds/packages/net/smartdns
+rm -rf feeds/packages/net/adguardhome
+rm -rf feeds/luci/themes/luci-theme-argon
 
-# other
-rm -rf package/lean/{adguardhome}
+# 添加额外插件
+git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
+git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
+
+# Themes
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+
+
