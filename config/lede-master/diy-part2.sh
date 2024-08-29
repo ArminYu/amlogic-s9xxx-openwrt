@@ -8,17 +8,11 @@
 
 # ------------------------------- Main source started -------------------------------
 
-# 删除自定义源默认的 argon 主题
-rm -rf package/lean/luci-theme-argon
-
-# 部分第三方源自带 argon 主题，上面命令删除不掉的请运行下面命令
-find ./ -name luci-theme-argon | xargs rm -rf;
-
-# 针对 LEDE 项目拉取 argon 原作者的源码
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
-
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-argon）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+
+# 更改 Argon 主题背景
+cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
